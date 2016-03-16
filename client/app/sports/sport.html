@@ -1,0 +1,67 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>{{sport.name}}</h1>
+			<button type="button" class="btn btn-default btn-lg favorite-btn" ng-class="{'favorite-btn-active': favorite}" ng-click="toggleFavoriteSport(sport._id)">
+				<span ng-class="{'glyphicon-star': favorite, 'glyphicon-star-empty': !favorite}" class="glyphicon"></span>
+				<span>{{favorite ? 'Favorited' : 'Favorite'}}</span>
+			</button>
+			<span class="sport-fav-text">{{sport.favorite_count}} players</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-primary game-panel">
+				<div class="panel-heading">
+			    <h3 class="panel-title">Games</h3>
+			  </div>
+				<ul ng-show="games.length" class="game-list panel-body">
+					<li class="game" ng-repeat="game in games">
+						<a href="/game/{{game._id}}">
+							<div class="row">
+								<div class="col-md-6">
+									<h2 class="name">{{game.name}}</h2>
+									<p class="creator soft">Hosted by <span class="creator-name">{{game.creator.name}}</span></p>
+									<p class="participants soft">Participants <span class="count">{{game.participants.length}}</span></p>
+								</div>
+								<div class="court col-md-6">
+									<span>{{game.court.name}}</span>
+									<img ng-src="{{game.court.image}}">
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="panel-body" ng-hide="games.length">
+					<p class="no-games">No games available.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default court-panel">
+				<div class="panel-heading">
+			    <h3 class="panel-title">Courts</h3>
+			  </div>
+				<ul ng-show="courts.length" class="court-list panel-body">
+					<li class="court" ng-repeat="court in courts">
+						<a href="/courts/{{court._id}}">
+							<div class="row">
+								<div class="col-md-6">
+									<h2 class="name">{{court.name}}</h2>
+								</div>
+								<div class="court-image col-md-6">
+									<img ng-src="{{court.image}}">
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="panel-body" ng-hide="courts.length">
+					<p class="no-courts">No courts available.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

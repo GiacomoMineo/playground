@@ -1,0 +1,219 @@
+.sports {
+    > li {
+        display: inline-block;
+    }
+}
+
+$sport-size: 128px;
+$sport-icon-size: 80%;
+.sport-main {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: $sport-size;
+    height: $sport-size;
+    margin: 0 4px;
+    border-radius: 50%;
+    background: no-repeat center center;
+    background-color: $sport-color;
+    text-decoration: none;
+    @include transition(background 0.3s ease);
+    background-size: $sport-icon-size;
+    &:hover {
+        .sport-name {
+            opacity: 1;
+        }
+    }
+}
+.sport-counter {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    background: $sport-counter-color;
+    color: #fff;
+    -webkit-animation: animHideNext 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+    animation: animHideNext 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+$sport-fav-size: 36px;
+.sport-fav {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: $sport-fav-size;
+    width: $sport-fav-size;
+    line-height: $sport-fav-size;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: $sport-fav-bg;
+    color: $sport-fav-color;
+}
+.sport-name {
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: $sport-size;
+    line-height: $sport-size;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+    color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: rgba(55,120,151,0.8);
+    @include transition(opacity 0.3s ease);
+}
+.sport-icon-Football {
+    background-image: url('../assets/images/sport-icons/football.png');
+}
+.sport-icon-Basketball {
+    background-image: url('../assets/images/sport-icons/basketball.png');
+}
+.sport-icon-Hockey {
+    background-image: url('../assets/images/sport-icons/hockey.png');
+}
+.sport-icon-Golf {
+    background-image: url('../assets/images/sport-icons/golf.png');
+}
+
+.sport-fav-text {
+    padding-left: 28px;
+    color: #282828;
+}
+
+.favorite-btn {
+    &.favorite-btn-active {
+        $color: #fff;
+        color: $color;
+        background-color: #E4D903;
+        &:hover {
+            color: $color;
+            background-color: #C8C802;
+        }
+    }
+}
+
+.game-panel, .court-panel {
+    margin: 40px 0;
+}
+.game-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .game {
+        border-bottom: 1px solid rgba(0,0,0,.2);
+        > a {
+            display: block;
+            position: relative;
+            padding: 16px;
+            text-decoration: none;
+            @include transition(background 0.3s ease);
+            &:hover {
+                text-decoration: none;
+                background-color: #F0F0F0;
+                .name {
+                    color: #000;
+                }
+            }
+        }
+        .name {
+            color: #323232;
+            margin: 10px 0;
+            font-weight: 300;
+        }
+        .creator {
+            .creator-name {
+                font-size: 17px;
+                font-weight: normal;
+                color: #000;
+            }
+        }
+        .court {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            height: 250px;
+            > span {
+                position: absolute;
+                top: 10%;
+                display: inline-block;
+                text-align: center;
+                font-size: 17px;
+                border-radius: 6px;
+                padding: 4px 12px;
+                background-color: rgba(0,0,0,.6);
+                color: #fff;
+            }
+            > img {
+                max-height: 100%;
+            }
+        }
+        .participants {
+            .count {
+                font-size: 17px;
+                font-weight: normal;
+                color: #000;
+            }
+        }
+        &:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}
+.court-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .court {
+        border-bottom: 1px solid rgba(0,0,0,.2);
+        > a {
+            display: block;
+            position: relative;
+            padding: 16px;
+            text-decoration: none;
+            @include transition(background 0.3s ease);
+            &:hover {
+                text-decoration: none;
+                background-color: #F0F0F0;
+                .name {
+                    color: #000;
+                }
+            }
+        }
+        .name {
+            color: #323232;
+            margin: 10px 0;
+            font-weight: 300;
+        }
+        .court-image {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            height: 250px;
+        }
+    }   
+}
+
+.no-games, .no-courts {
+    padding: 16px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 300;
+    color: #464646;
+}

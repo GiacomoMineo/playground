@@ -1,3 +1,10 @@
+# Sass cache
+.sass-cache
+.tmp
+
+# Bower
+client/bower_components
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

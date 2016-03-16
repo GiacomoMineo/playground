@@ -1,0 +1,152 @@
+.game-form {
+	margin-bottom: 200px;
+	label {
+		display: block;
+		font-size: 23px;
+		font-weight: bold;
+	}
+}
+
+.group-sport {
+	text-align: center;
+}
+
+.sports, .favorite-sports {
+	list-style: none;
+	display: block;
+	text-align: center;
+	padding: 0;
+}
+
+$sport-size: 48px;
+$sport-animation-size: 64px;
+$sport-favorite-size: 96px;
+
+$sport-icon-size: 80%;
+
+$sport-selected-color: #3EBF47;
+$sport-selected-color-hover: #2E8D35;
+
+.sport-control {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	width: $sport-size;
+	height: $sport-size;
+	margin: 0 4px;
+	border-radius: 50%;
+	background: no-repeat center center;
+	background-color: $sport-color;
+	@include transition(background 0.3s ease);
+	&.selected {
+		background-color: $sport-selected-color;
+		&:hover {
+			background-image: url('/assets/images/icons/close.png');
+			background-color: $sport-selected-color-hover;
+			> .sport-name {
+				opacity: 0;
+			}
+		}
+	}
+	&:hover {
+		.sport-name {
+      opacity: 1;
+    }
+  }
+}
+.sport-favorite {
+	width: $sport-favorite-size;
+	height: $sport-favorite-size;
+	margin: 0 6px;
+	background-size: $sport-icon-size;
+	> .sport-name {
+		line-height: $sport-favorite-size;
+		height: $sport-favorite-size;
+		font-size: 13px;
+	}
+}
+.sport-default {
+	background-size: $sport-icon-size;
+	> .sport-name {
+		line-height: $sport-size;
+		height: $sport-size;
+		font-size: 11px;
+	}
+	&.selected {
+		width: $sport-favorite-size;
+		height: $sport-favorite-size;
+		background-size: $sport-icon-size;
+		> .sport-name {
+			line-height: $sport-favorite-size;
+			height: $sport-favorite-size;
+			font-size: 13px;
+		}
+	}
+}
+
+.selected-sport-text {
+	font-size: 17px;
+	font-weight: 300;
+}
+
+.sport-icon-Football {
+	background-image: url('../assets/images/sport-icons/football.png');
+}
+.sport-icon-Basketball {
+	background-image: url('../assets/images/sport-icons/basketball.png');
+}
+.sport-icon-Hockey {
+	background-image: url('../assets/images/sport-icons/hockey.png');
+}
+.sport-icon-Golf {
+	background-image: url('../assets/images/sport-icons/golf.png');
+}
+
+#court {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.newgame-panel {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-top: none;
+}
+.panel-body {
+	padding: 0;
+}
+$court-selected-color: $sport-selected-color;
+.courts-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	.court {
+		position: relative;
+		cursor: pointer;
+		$size: 40px;
+		padding: $size/2;
+		vertical-align: middle;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		@include transition(background 0.3s ease);
+		&:hover {
+			background-color: #E6E8EC;
+		}
+		&:last-child {
+			border-bottom: none;
+		}
+		> span {
+			line-height: 20px;
+			font-size: 15px;
+			height: 20px;
+			font-weight: 300;
+		}
+		> img {
+			max-height: $size+($size/2);
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		&.selected {
+			background-color: $court-selected-color;
+		}
+	}
+}
